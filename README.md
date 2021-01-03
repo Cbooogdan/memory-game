@@ -7,4 +7,4 @@ Just run `yarn && yarn dev` and you will see the URL for this project. Use it in
 ## Interface
 Small peek on how this project is looking.
 
-![Image with a Memory game](/images/interface.jpeg)
+![Image with a Memory game](/src/images/interface.jpeg)
