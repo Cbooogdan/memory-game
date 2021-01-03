@@ -1,0 +1,132 @@
+$satin-linen: #EAE7DC;
+$akaroa: #D8C3A5;
+$natural-gray: #8E8D8A;
+$apricot: #E98074;
+$burnt-sienna: #E85A4F;
+
+body {
+    position: relative;
+    background: $satin-linen;
+}
+
+.main {
+    text-align: center;
+    height: 100%;
+}
+
+.footer {
+    text-align: center;
+}
+
+.info {
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+.card {
+    position: relative;
+
+    &__win {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($akaroa, 0.9);
+        border-radius: 30px;
+
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            font-size: 50px;
+            color: $burnt-sienna;
+        }
+
+        &.active {
+            opacity: 1;
+            z-index: 100;
+            transition: all 0.25s linear;
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: inline-block;
+        width: 180px;
+        height: 180px;
+        margin: 10px;
+        border-radius: 10px;
+
+        &:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            height: 100%;
+            width: 100%;
+            opacity: 1;
+            transition: all 0.25s linear;
+        }
+
+        &.active {
+            &:after {
+                opacity: 0;
+            }
+
+            .card {
+                &__back {
+                    transform: rotateY(0deg);
+                }
+                
+                &__front {
+                    transform: rotateY(180deg);
+                }
+            }
+        }
+
+        &.match {
+            &:after {
+                opacity: 0;
+            }
+        }
+    }
+
+    &__back {
+        transform: rotateY(180deg);
+    }
+    
+    &__front {
+        transform: rotateY(0deg);
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        height: 100%;
+        width: 100%;
+        transition: transform 500ms ease-in-out;
+    }
+
+    &__wrapper {
+        display: inline-block;
+        position: relative;
+        margin: 0 auto;
+        max-width: 900px;
+        width: 100%;
+        transition: all 0.25s linear;
+    }
+
+    &__container {
+        position: relative;
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
